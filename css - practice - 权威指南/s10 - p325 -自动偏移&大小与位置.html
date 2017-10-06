@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		span.demo1{
+			/*自动偏移，单个auto的情况：top处于“静态”位置*/
+			position: absolute;
+			top: auto;
+			left: 0;
+		}
+		span.demo3{
+			/*水平方向三者均为auto：left被替换为静态偏移，width紧缩，right作为非静态属性负责填充*/
+			position: absolute;
+			left: auto;
+			width:auto;
+			right:auto;
+		}
+		span.demo4{
+			/*margin为auto，水平方向三者均不为auto：左右margin设置相等值*/
+			position: absolute;
+			left: 1em;
+			width:10em;
+			right:1em;
+			margin:0 auto;
+		}
+		span.demo5{
+			/*过渡受限- margin不为auto，水平方向三者均不为auto：right被重置*/
+			position: absolute;
+			left: 1em;
+			width:10em;
+			right:1em;
+			margin:0em 1em;
+		}
+		span.demo6{
+			/*留出一个auto值：该atuo值负责填充*/
+			position: absolute;
+			left: 1em;
+			width:10em;
+			right:1em;
+			margin:0em 1em;
+			margin-left:auto;
+		}
+		span.demo7{
+			/*margin-left、left为auto值：margin-left置零，left负责填充*/
+			position: absolute;
+			left: auto;
+			width:10em;
+			right:1em;
+			margin-left:auto;
+		}
+		span.demo8{
+			/*margin-left、left为auto值：margin-left置零，left负责填充*/
+			position: absolute;
+			left: auto;
+			width:10em;
+			right:auto;
+			margin-right:auto;
+			margin-left:auto;
+		}
+		span.demo9{
+			/*水平方向三者均为auto：left被替换为静态偏移，width紧缩，right作为非静态属性负责填充*/
+			position: absolute;
+			left: auto;
+			width:auto;
+			right:auto;
+			margin-left: auto;
+			margin-right:auto;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		A wiki is run using wiki software, otherwise known as a wiki engine. A wiki engine is a type of content management system, but it differs from most other such systems, including blog software, in that the content is created without any defined owner or leader, and wikis have little implicit structure, allowing structure to emerge according to the needs of the users.<span class="demo9">[2]bigggg</span> There are dozens of different wiki engines in use, both standalone and part of other software, such as bug tracking systems. Some wiki engines are open source, whereas others are proprietary. Some permit control over different functions (levels of access); for example, editing rights may permit changing, adding or removing material. Others may permit access without enforcing access control. Other rules may be imposed to organize content.
+	</p>
+</body>
+</html>

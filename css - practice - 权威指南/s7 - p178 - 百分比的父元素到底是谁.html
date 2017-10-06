@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			background: red;
+			height: 100px;
+		}
+		div.sub1{
+			background: green;
+			height: 20%
+		}
+		div.sub2{
+			left: 100px;
+			background: blue;
+			height: 20%;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		parent block height 100px
+		<div class='sub1'>i am in sub block which parent is div,height 20px</div>
+		<div class='sub2'>i am in sub block which parent is body, height 20% of body height</div>
+	</div>
+</body>
+</html>

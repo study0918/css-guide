@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// //--------------对象的构造器属性
+		// function Hero(name, job){
+		//     this.name = name;
+		//     this.job = job;
+		// }
+		// var hero = new Hero("xiaoming","Ninja");
+		// console.log("hero constructor=%s", hero.constructor);//function Hero(name, job)....
+		// //------------- 函数的constructor属性,其值为function Function()
+		// console.log("Hero.constructor=%O", Hero.constructor);//function Function()
+		// //------------- 函数的prototype属性，其值是一个对象
+		// console.log("typeof Hero.prototype=%s", typeof Hero.prototype);//object
+		// console.log("Hero.prototype=%O", Hero.prototype);
+
+		function Student(props) {
+		    this.name = props.name || '匿名'; // 默认值为'匿名'
+		    this.grade = props.grade || 1; // 默认值为1
+		}
+		function createStudent(props) {
+		    return new Student(props || {})
+		}
+		var xiaoming = createStudent({name: '小明'}); 
+		var xiaohong = createStudent({name: '小红'}); 
+		// 找不到hello方法
+		try{
+			xiaoming.hello(); // xiaoming.hello is not a function
+		} catch(e){ console.error(e)}
+		try{
+			xiaohong.hello(); // xiaoming.hello is not a function
+		} catch(e){ console.error(e)}
+		// 找到hello方法，同时生效到多个对象	
+		Student.prototype.hello = function () {
+		    console.log('Hello, ' + this.name + '!');
+		};
+		xiaoming.hello(); // Hello, 小明!
+		xiaohong.hello(); // Hello, 小红!
+
+		Student.prototype.sex = 'girl';
+		xiaoming.sex = 'boy';
+		console.log("xiaoming.sex=%s",xiaoming.sex);//boy
+		delete xiaoming.sex
+		console.log("xiaoming.sex=%s",xiaoming.sex);//girl
+
+		//枚举属性
+		console.log("--------- 枚举属性实验 ---------");
+		for( var prop in xiaoming){
+			console.log(prop + '=' + xiaoming[prop]+",Enumerable="+xiaoming.propertyIsEnumerable(prop));
+
+		}
+		console.log("--------------")
+		for( var prop in xiaoming){
+			if( !xiaoming.hasOwnProperty(prop)){ continue;}
+			console.log(prop + '=' + xiaoming[prop]);
+		}
+		console.log("--------- 枚举属性实验 end---------");
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
